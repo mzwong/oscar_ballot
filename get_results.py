@@ -15,7 +15,7 @@ First column is the timestamp, second column is the email address
 
 import csv
 import re
-with open('ballot_sample.csv', 'rb') as csvfile:
+with open('ballot.csv', 'rb') as csvfile:
     creader = csv.reader(csvfile)
     count = 0
     results = {}
