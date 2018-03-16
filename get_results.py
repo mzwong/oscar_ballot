@@ -15,7 +15,7 @@ First column is the timestamp, second column is the email address
 
 import csv
 import re
-with open('ballot.csv', 'rb') as csvfile:
+with open('ballot_sample.csv', 'rb') as csvfile:
     creader = csv.reader(csvfile)
     count = 0
     results = {}
@@ -43,7 +43,7 @@ with open('ballot.csv', 'rb') as csvfile:
         #create a list with elements that match and get its length
         score = len([i for i, j in zip(answer, curr) if i == j])
         #strip @virginia.edu from username
-        key = re.sub('@*$', '', key)
+        key = re.sub('@.*$', '', key)
         final_scores.append([key, score])
     final_scores = sorted(final_scores, key = lambda score: score[1])
     final_scores.reverse()
@@ -54,23 +54,8 @@ with open('ballot.csv', 'rb') as csvfile:
     #print cinema committee scores
 ############## Cinema Committee Members ###################
     cinema_people = {
-                        'ak9zb' : 'Anya',
-                        'bam3mc': 'Bayan',
-                        'cbm3xh': 'Caitlin',
-                        'csd4hf': 'Claire',
-                        'hcw2rp': 'Hannah',
-                        'jat6qv': 'Jeyda',
-                        'jdv2ck': 'Jill',
-                        'mzw7af': 'Maurice',
-                        'mew8we': 'Meagan',
-                        'ps7fh' : 'Pavina',
-                        'rvt4fe': 'Rachel',
-                        'rmm5ur': 'Rebe',
-                        'sjm9zf': 'Sarah',
-                        'tjc3vb': 'Taylor',
-                        'tr2ec' : 'Tripti',
-                        'vg6pd' : 'Victoria',
-                        'jtw7fr' : 'John',
+        'js8th' : 'John Smith',
+        'mzw7af': 'Maurice Wong',
     }
     for entry in final_scores:
         name = entry[0]

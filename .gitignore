@@ -1,2 +1,3 @@
 *csv
 *.txt
+!ballot_sample.csv
